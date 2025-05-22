@@ -24,6 +24,8 @@ Les données utilisées sont anonymisées, au format .pdf, et stockées dans le 
 - Extraire les **verbatims clés** associés à chaque thématique.
 - Générer un **top 5** des thématiques les plus fréquentes.
 
+## Réalisations 
+
 1. Extraction des thématiques et verbatims
 
 Le script python extrairethemes.py :
