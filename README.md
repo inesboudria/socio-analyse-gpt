@@ -21,20 +21,25 @@ Ce projet vise à utiliser l'intelligence artificielle (LLM) pour réaliser une 
 
 1. Extraction des thématiques et verbatims
 
-Le script python :
+Le script python extrairethemes.py :
 
 lit tous les PDF dans data/,
 appelle le modèle Groq (LLM) pour analyser chaque chunk de texte,
 génère un fichier entretiens_structures.json dans outputs/.
+
 2. Génération du top 5
-Le script top5_maker.py :
+
+Le script top5themes.py :
 
 lit le JSON structuré,
 extrait les 5 thématiques les plus fréquentes,
 associe les verbatims liés à chaque thème,
-enregistre tout dans top5.json,
-crée un graphique camembert graphique_top5.png.
-📈 Exemple de sortie (visualisation)
+enregistre tout dans le .json,
 
+3. Test de visualisation : 
+
+Le script graphiquesthemes.py
+
+crée un graphique camembert graphique_top5.png.
 Un fichier PNG est généré avec la répartition des 5 thèmes les plus présents dans les entretiens.
 
