@@ -1,0 +1,5 @@
+groq
+tiktoken
+matplotlib
+pypdf2
+pandas
