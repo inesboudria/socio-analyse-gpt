@@ -4,6 +4,8 @@
 
 Ce projet vise à utiliser l'intelligence artificielle (LLM) pour réaliser une **analyse qualitative d'entretiens sociologiques**, en identifiant automatiquement des **thématiques** et en extrayant les **verbatims** les plus significatifs.
 
+Il a été réalisé par BOUDRIA Ines et Dounia PIHAN
+
 ## 📁 Structure du projet
 
 ├── data/ → Fichiers PDF des entretiens
@@ -12,6 +14,9 @@ Ce projet vise à utiliser l'intelligence artificielle (LLM) pour réaliser une 
 ├── requirements.txt → Dépendances Python
 ├── README.md → Ce fichier
 
+📂 Données
+
+Les données utilisées sont anonymisées, au format .pdf, et stockées dans le dossier data/.
 
 ## 📌 Objectifs
 
