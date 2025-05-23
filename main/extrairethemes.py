@@ -1,11 +1,12 @@
-!pip install groq tiktoken matplotlib pandas PyPDF2
+!pip install groq tiktoken matplotlib pandas PyPDF2 pdfplumber
 
 import os
+import pdfplumber 
 import json
 import PyPDF2
 import tiktoken
 import time
-import groq  # Assure-toi que groq est bien installé : pip install groq
+import groq
 
 GROQ_API_KEY = "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"
 LLAMA_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
@@ -28,7 +29,7 @@ def split_text_by_tokens(text, max_tokens):
 
     for word in words:
         current_chunk.append(word)
-        if count_tokens(" ".join(current_chunk)) >= max_tokens:
+        if count_tokens(" ".join(current_chunk)) > max_tokens - 200: 
             chunks.append(" ".join(current_chunk))
             current_chunk = []
     if current_chunk:
@@ -39,10 +40,11 @@ def split_text_by_tokens(text, max_tokens):
 def extraire_texte_pdf(chemin_pdf):
     texte = ""
     try:
-        with open(chemin_pdf, "rb") as f:
-            lecteur = PyPDF2.PdfReader(f)
-            for page in lecteur.pages:
-                texte += page.extract_text() or ""
+        with pdfplumber.open(chemin_pdf) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    texte += page_text + "\n"
     except Exception as e:
         print(f"Erreur avec {chemin_pdf} : {e}")
     return texte
@@ -123,6 +125,7 @@ for filename in os.listdir(PDF_FOLDER):
         "verbatims": list(set(verbatims_total))
     })
 
-# === Sauvegarde JSON ===
 with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
     json.dump(resultats, f, ensure_ascii=False, indent=4)
+
+print(f"✅ JSON généré : {OUTPUT_JSON}")
