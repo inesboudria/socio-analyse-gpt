@@ -34,6 +34,7 @@ lit tous les PDF dans data/,
 appelle le modèle Groq (LLM) pour analyser chaque chunk de texte,
 génère un fichier entretiens_structures.json dans outputs/.
 
+Malheureusement le script n'arrive pas à extraire les theme et verbatims de tous les entretiens : par manque de temps nous n'avons pas trouvé la solution et nous avons continué avec la selection en abbandonant quelques entretiens
 2. Génération du top 5
 
 Le script top5themes.py :
